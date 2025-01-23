@@ -27,18 +27,20 @@ export default function Index() {
   )
   return (
     <GestureHandlerRootView>
-      <GestureDetector gesture={combinedGesture}>
-        <Animated.View
-          style={[{
-            flex: 1,
-            justifyContent: "center",
-            alignItems: "center",
-          }, backgroundAnimatedStyle]}
-        >
-          <Animated.Text style={[textAnimatedStyle, { fontSize: 50 }]}>Hello there</Animated.Text>
-          <BottomColorPalette ref={bottomSheetModalRef} startBackgroundColorAnimation={startBackgroundColorAnimation} />
-        </Animated.View>
-      </GestureDetector>
+      <Animated.View style={{ flex: 1 }}>
+        <GestureDetector gesture={combinedGesture}>
+          <Animated.View
+            style={[{
+              flex: 1,
+              justifyContent: "center",
+              alignItems: "center",
+            }, backgroundAnimatedStyle]}
+          >
+            <Animated.Text style={[textAnimatedStyle, { fontSize: 50 }]}>Hello there</Animated.Text>
+          </Animated.View>
+        </GestureDetector>
+        <BottomColorPalette ref={bottomSheetModalRef} startBackgroundColorAnimation={startBackgroundColorAnimation} />
+      </Animated.View>
     </GestureHandlerRootView>
   );
 }
