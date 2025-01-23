@@ -12,3 +12,10 @@ const generateRandomHexString = () => {
   const value = Math.floor(Math.random() * 256).toString(16).toUpperCase();
   return value.length === 1 ? `0${value}` : value;
 }
+
+/**
+ * Checks if the given value is a valid hex color
+ */
+export const isHexColor = (value: string) => {
+  return /^#[A-Fa-f0-9]{6}$/.test(value);
+}

@@ -17,7 +17,7 @@ import BottomColorPalette from "@/component/BottomColorPalette";
 
 export default function Index() {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
-  const { animatedStyle: backgroundAnimatedStyle, startAnimate: startBackgroundColorAnimation } = useBackgroundAnimation("#FF0000");
+  const { animatedStyle: backgroundAnimatedStyle, startAnimate: startBackgroundColorAnimation } = useBackgroundAnimation("#0FFF30");
   const { animatedStyle: textAnimatedStyle, startAnimate: startTextAnimation, stopAnimate: stopTextAnimation } = useTextAnimation();
   const combinedGesture = useGestureHandlers(
     () => startBackgroundColorAnimation(generateRandomColor()),
