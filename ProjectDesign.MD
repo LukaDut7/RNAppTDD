@@ -23,12 +23,17 @@
 # Logic Design
 
 - Lib
-  - genRandomColor() : generate random color and returns it
+  - generateRandomColor() : generate random color and returns it
 - hooks
   - useBackgroundAnimation() : provide animatedProps to Animated expo-linear-gradient componenet
   - useLongTapTextAnimation(): provied anmiatedProps to Animated Text component
   - useTapListeners(): provide handlers for single, long, double tap
 
 # Unit Test
-
-# E2E test
+- libraries to use
+  - jest, @testing-library/react-native
+- Things to test
+  - generateRandomColor()
+  - useBackgroundAnimation()
+  - useLongTapTextAnimation()
+  - useTapListeners()
