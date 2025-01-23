@@ -1,15 +1,44 @@
-import { Text, View } from "react-native";
+import React, { useRef } from "react";
+import Animated from 'react-native-reanimated';
+import {
+  GestureDetector,
+  GestureHandlerRootView,
+} from 'react-native-gesture-handler';
+import {
+  BottomSheetModal,
+} from '@gorhom/bottom-sheet';
+
+import { useBackgroundAnimation } from "@/hooks/useBackgroundAnimation";
+import { useTextAnimation } from "@/hooks/useTextAnimation";
+import { useGestureHandlers } from "@/hooks/useGestureHandlers";
+
+import { generateRandomColor } from "@/lib";
+import BottomColorPalette from "@/component/BottomColorPalette";
 
 export default function Index() {
+  const bottomSheetModalRef = useRef<BottomSheetModal>(null);
+  const { animatedStyle: backgroundAnimatedStyle, startAnimate: startBackgroundColorAnimation } = useBackgroundAnimation("#FF0000");
+  const { animatedStyle: textAnimatedStyle, startAnimate: startTextAnimation, stopAnimate: stopTextAnimation } = useTextAnimation();
+  const combinedGesture = useGestureHandlers(
+    () => startBackgroundColorAnimation(generateRandomColor()),
+    () => startTextAnimation(),
+    () => stopTextAnimation(),
+    () => bottomSheetModalRef.current?.present()
+  )
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
-    </View>
+    <GestureHandlerRootView>
+      <GestureDetector gesture={combinedGesture}>
+        <Animated.View
+          style={[{
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+          }, backgroundAnimatedStyle]}
+        >
+          <Animated.Text style={[textAnimatedStyle, { fontSize: 50 }]}>Hello there</Animated.Text>
+          <BottomColorPalette ref={bottomSheetModalRef} startBackgroundColorAnimation={startBackgroundColorAnimation} />
+        </Animated.View>
+      </GestureDetector>
+    </GestureHandlerRootView>
   );
 }
