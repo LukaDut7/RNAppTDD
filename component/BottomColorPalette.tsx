@@ -37,7 +37,7 @@ const BottomColorPalette = forwardRef<BottomSheetModal, BottomColorPaletteProps>
 
   return (
     <BottomSheetModalProvider>
-      <BottomSheetModal ref={ref} snapPoints={['50%']}>
+      <BottomSheetModal ref={ref} snapPoints={['45%']}>
         <BottomSheetFlatList
           data={data}
           keyExtractor={(i) => i}
