@@ -8,7 +8,7 @@
 - long tap will cause "Hello there" animate to blink
 - swipe up will bring bottom popup with listview in it.
   - view will have randomly generated color palate
-  - tapping it will cause background color to animate
+  - tapping it will cause background color to animate to choosen color
 
 # UI Design
 
@@ -23,8 +23,9 @@
 - Lib
   - generateRandomColor() : generate random color and returns it
 - hooks
-  - useBackgroundAnimation() : provide animatedProps to Animated expo-linear-gradient componenet
-  - useLongTapTextAnimation(): provied anmiatedProps to Animated Text component
+  - useBackgroundAnimation() : provide animatedStyle to Animated componenet
+  - useTextAnimation(): provied anmiatedStyle to Animated Text component
+  - useGestureHandlers(): provide gesture handlers(tap, longtap, swipeup)
 
 # Unit Test
 - libraries to use
@@ -32,4 +33,5 @@
 - Things to test
   - generateRandomColor()
   - useBackgroundAnimation()
-  - useLongTapTextAnimation()
+  - useTextAnimation()
+  - useGestureHandlers()
